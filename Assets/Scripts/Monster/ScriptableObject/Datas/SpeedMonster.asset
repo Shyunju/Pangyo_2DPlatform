@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90af5f2df8d184043af4bfac10f0c663, type: 3}
   m_Name: SpeedMonster
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 7
   isWalking: 0
-  delay: 1
+  delay: 0.5
