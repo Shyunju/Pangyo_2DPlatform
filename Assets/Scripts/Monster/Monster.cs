@@ -7,6 +7,7 @@ public class Monster : MonoBehaviour
 {
     private SpriteRenderer renderer;
     private Rigidbody2D rigidbody;
+    private Animator anim;
     private int nextMove;
     [SerializeField] private MonsterSO monsterSo;
 
@@ -14,6 +15,7 @@ public class Monster : MonoBehaviour
     {
         renderer = GetComponent<SpriteRenderer>();
         rigidbody = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
         Moving();
     }
 
@@ -39,10 +41,16 @@ public class Monster : MonoBehaviour
         nextMove = Random.Range(-1, 2);
         if(nextMove > 0) 
         {
+            anim.SetBool("isWalking", true);
             renderer.flipX = true;
         }else if(nextMove < 0)
         {
             renderer.flipX = false;
+            anim.SetBool("isWalking", true);
+        }
+        else
+        {
+            anim.SetBool("isWalking", false);
         }
         Invoke(nameof(Moving), monsterSo.delay);
     }
