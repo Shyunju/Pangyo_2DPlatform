@@ -1,22 +1,52 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private PlayerController controller;
+
+    private Vector2 moveDirection = Vector2.zero;
+    private Rigidbody2D rigidbody;
+
+
     public float maxSpeed;
     public float jumpPower;
-
+    public float playerSpeed;
 
     Rigidbody2D rigid;
     SpriteRenderer spriteRenderer;
     Animator anim;
     private void Awake()
     {
+        controller = GetComponent<PlayerController>();
         rigid = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+    }
+    private void Start()
+    {
+        controller.OnMoveEvent += Move;
+    }
+
+    private void RealFixedUpdate()
+    {
+        //이미 Input에서 moveDirection에 필요한 정보를 받고있음
+        ApplyMovent(moveDirection);
+    }
+
+
+
+    private void Move(Vector2 direction)
+    {
+        moveDirection = direction;
+    }
+    private void ApplyMovent(Vector2 direction)
+    {
+        direction = direction * playerSpeed;
+        rigidbody.velocity = direction;
     }
 
     private void Update()
