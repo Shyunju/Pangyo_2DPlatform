@@ -5,11 +5,14 @@ using UnityEngine;
 public class FireMonster : MonoBehaviour
 {
     [SerializeField] private MonsterSO monsterSO;
-    [SerializeField] private GameObject Spawner;
+    [SerializeField] private GameObject spawner;
     [SerializeField] private GameObject bullet;
     // Start is called before the first frame update
     void Start()
     {
+        //bullet = GetComponent<GameObject>();
+        //spawner = GetComponent<GameObject>();
+        MakeBullet();
         
     }
 
@@ -17,5 +20,10 @@ public class FireMonster : MonoBehaviour
     void Update()
     {
         
+    }
+    void MakeBullet()
+    {
+        Instantiate(bullet, spawner.transform.position, spawner.transform.rotation);
+        Invoke(nameof(MakeBullet), monsterSO.delay);
     }
 }

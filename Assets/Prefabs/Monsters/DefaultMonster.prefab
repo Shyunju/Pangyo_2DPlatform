@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 253816911332841998}
   - component: {fileID: 7036956776271681172}
   - component: {fileID: 1207588824337856769}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: MainSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4023f5c1966f1d42a039701f55a9ce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterSo: {fileID: 11400000, guid: 5a5c7c28ff3f42c4ca8461fb5c25625f, type: 2}
+  monsterSO: {fileID: 0}
 --- !u!95 &1207588824337856769
 Animator:
   serializedVersion: 5
@@ -203,7 +203,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5921832933103028866}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: DefaultMonster
   m_TagString: Untagged
   m_Icon: {fileID: 0}

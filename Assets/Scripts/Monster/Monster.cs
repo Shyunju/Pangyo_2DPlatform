@@ -5,32 +5,32 @@ using UnityEngine;
 
 public class Monster : MonoBehaviour
 {
-    private SpriteRenderer renderer;
-    private Rigidbody2D rigid;
-    private Animator anim;
-    private int nextMove;
+    private SpriteRenderer _renderer;
+    private Rigidbody2D _rigid;
+    private Animator _anim;
+    private int _nextMove;
     [SerializeField] private MonsterSO monsterSO;
 
     private void Awake()
     {
-        renderer = GetComponent<SpriteRenderer>();
-        rigid = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+        _renderer = GetComponent<SpriteRenderer>();
+        _rigid = GetComponent<Rigidbody2D>();
+        _anim = GetComponent<Animator>();
         Moving();
     }
 
     void FixedUpdate()
     {
         //기본 동작
-        rigid.velocity = new Vector2(monsterSO.speed * nextMove, rigid.velocity.y);
+        _rigid.velocity = new Vector2(monsterSO.speed * _nextMove, _rigid.velocity.y);
 
         //지형 감지 
-        Vector2 frontVec = new Vector2(rigid.position.x + nextMove * 0.3f, rigid.position.y);
+        Vector2 frontVec = new Vector2(_rigid.position.x + _nextMove * 0.3f, _rigid.position.y);
         Debug.DrawRay(frontVec, Vector3.down, new Color(0, 1, 0));
         RaycastHit2D rayHit = Physics2D.Raycast(frontVec, Vector3.down, 1, LayerMask.GetMask("Platform")); //땅의 레이어가 Platform
         if(rayHit.collider == null)
         {
-            nextMove *= -1;
+            _nextMove *= -1;
             CancelInvoke();
             Invoke(nameof(Moving), monsterSO.delay);
         }
@@ -38,20 +38,33 @@ public class Monster : MonoBehaviour
 
     private void Moving()
     {
-        nextMove = Random.Range(-1, 2);
-        if(nextMove > 0) 
+        _nextMove = Random.Range(-1, 2);
+        if(_nextMove > 0) 
         {
-            //anim.SetBool("isWalking", true);
-            renderer.flipX = true;
-        }else if(nextMove < 0)
+            _anim.SetBool("isWalking", true);
+            _renderer.flipX = true;
+        }else if(_nextMove < 0)
         {
-            renderer.flipX = false;
-            //anim.SetBool("isWalking", true);
+            _renderer.flipX = false;
+            _anim.SetBool("isWalking", true);
         }
         else
         {
-            //anim.SetBool("isWalking", false);
+            _anim.SetBool("isWalking", false);
         }
         Invoke(nameof(Moving), monsterSO.delay);
+    }
+
+    private void Die()
+    {
+        _rigid.velocity = Vector2.zero;
+        StartCoroutine(nameof(DieCo));
+        gameObject.SetActive(false);
+    }
+
+    private IEnumerator DieCo()
+    {
+        yield return new WaitForSecondsRealtime(1f);
+        //todo 몬스터 반투명 후 사라짐
     }
 }
