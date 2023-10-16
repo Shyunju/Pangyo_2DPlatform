@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 1320926653394948200}
   m_Layer: 12
   m_Name: FireMonster
-  m_TagString: Untagged
+  m_TagString: Invnc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
