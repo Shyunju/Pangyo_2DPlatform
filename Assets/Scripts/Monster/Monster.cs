@@ -8,6 +8,7 @@ public class Monster : MonoBehaviour
     private SpriteRenderer _renderer;
     private Rigidbody2D _rigid;
     private Animator _anim;
+    private BoxCollider2D _collider;
     private int _nextMove;
     [SerializeField] private MonsterSO monsterSO;
 
@@ -16,6 +17,7 @@ public class Monster : MonoBehaviour
         _renderer = GetComponent<SpriteRenderer>();
         _rigid = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
+        _collider = GetComponent<BoxCollider2D>();
         Moving();
     }
 
@@ -55,16 +57,17 @@ public class Monster : MonoBehaviour
         Invoke(nameof(Moving), monsterSO.delay);
     }
 
-    private void Die()
+    public void OnDamaged()
     {
-        _rigid.velocity = Vector2.zero;
-        StartCoroutine(nameof(DieCo));
-        gameObject.SetActive(false);
+        _renderer.color = new Color(1, 1, 1, 0.5f);
+        _renderer.flipY = true;
+        _collider.enabled = false;
+        _rigid.AddForce(Vector2.up * 5, ForceMode2D.Impulse);
+        Invoke(nameof(DeAcrive), 5f);
     }
 
-    private IEnumerator DieCo()
+    void DeAcrive()
     {
-        yield return new WaitForSecondsRealtime(1f);
-        //todo 몬스터 반투명 후 사라짐
+        Destroy(gameObject);
     }
 }

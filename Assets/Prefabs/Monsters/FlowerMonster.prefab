@@ -30,7 +30,7 @@ Transform:
   m_Children:
   - {fileID: 325813030546205238}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4434604473220650938
 GameObject:
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 6826313043899079978}
   m_Layer: 12
   m_Name: MainSprite
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

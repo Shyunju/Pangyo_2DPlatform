@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5991976511207115256}
   m_Layer: 12
   m_Name: MainSprite
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -224,5 +224,5 @@ Transform:
   m_Children:
   - {fileID: 4231896807217650820}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
