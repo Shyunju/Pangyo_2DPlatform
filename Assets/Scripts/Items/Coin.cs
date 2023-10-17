@@ -1,14 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Coin : MonoBehaviour
+public class Coin : PickupItem
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    [SerializeField] int Money = 10;
+
+    protected override void OnPickedUp(GameObject receiver)
     {
-        if(collision.gameObject.tag.Equals("Player"))
-        {
-            Destroy(gameObject);
-        }
+        Debug.Log("Money");
     }
 }
