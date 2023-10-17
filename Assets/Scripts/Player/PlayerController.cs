@@ -41,9 +41,9 @@ public class PlayerController : MonoBehaviour
         OnMoveEvent?.Invoke(direction);
     }
 
-    public void CallJumpEvent(Vector2 direction)
+    public void CallJumpEvent()
     {
-        OnLookEvent?.Invoke(direction);
+        OnJumpEvent?.Invoke();
     }
     public void CallAttackEvent()
     {

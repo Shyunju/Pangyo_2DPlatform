@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3374785376288145523}
   - component: {fileID: 3495155031085043280}
   - component: {fileID: 955708775685718226}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 2777252696038268879}
   - component: {fileID: 4103552563516078711}
   - component: {fileID: 7330520820646344155}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 1
   m_AngularDrag: 0
-  m_GravityScale: 4
+  m_GravityScale: 6
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -313,7 +313,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5009443123020304519, guid: 56814f646eb9bcb429a84c8cfe499880, type: 3}
   maxSpeed: 4.5
   jumpPower: 20
-  playerSpeed: 0
+  playerSpeed: 4.5
 --- !u!114 &7330520820646344155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,7 +335,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1030080589286810307}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Aim
   m_TagString: Untagged
   m_Icon: {fileID: 0}

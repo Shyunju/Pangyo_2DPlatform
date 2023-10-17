@@ -5,11 +5,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputController : PlayerController
 {
-    private void Awake()
-    {
-        
-    }
-
     public void OnMove(InputValue value)
     {
         Vector2 moveInput = value.Get<Vector2>().normalized;
@@ -17,7 +12,7 @@ public class PlayerInputController : PlayerController
     }
     public void OnJump(InputValue value)
     {
-        ;
+        CallJumpEvent();
     }
     public void OnFire(InputValue value)
     {

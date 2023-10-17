@@ -4,6 +4,15 @@ using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
+//플레이어 현재 상태(변신 상태)
+//캐릭터 상태 변화 종류 : 커지고, 작아지고, 속도, 공격(맞으면 없어짐) // 스테이지를 리셋
+public enum Type
+{
+    TEMP1,
+    TEMP2,
+    TEMP3
+}
+
 public class PlayerMovement : MonoBehaviour
 {
     private PlayerController controller;
@@ -16,15 +25,13 @@ public class PlayerMovement : MonoBehaviour
     private Transform aim;
     public GameObject bulletPrefab;
 
+    public Type currenType = Type.TEMP1;
 
 
 
     public float maxSpeed;
     public float jumpPower;
     public float playerSpeed;
-
-    bool isFlipped = false;
-    bool currentFlipped = false;
 
     SpriteRenderer spriteRenderer; //있어야함
     Animator anim; //있어야함
@@ -37,59 +44,46 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Start()
     {
+        //controller.OnMoveEvent += PlayerFlip;
         controller.OnMoveEvent += Move;
-        controller.OnAttackEvent += OnTryShoot;
+        controller.OnAttackEvent += Shoot;
+        controller.OnJumpEvent += Jump;
     }
 
+    private void Update()
+    {
+        PlayerFlip(moveDirection);
+    }
     private void FixedUpdate()
     {
-        //이미 Input에서 moveDirection에 필요한 정보를 받고있음
         ApplyMovent(moveDirection);
+        isGround();
     }
-
-
 
     private void Move(Vector2 direction)
     {
         moveDirection = direction;
 
+    }
+
+    private void PlayerFlip(Vector2 direction)
+    {
         if (direction == Vector2.zero)
             return;
-
-        // 방향이 바뀔 때만 스프라이트를 뒤집기 (마지막 방향, 현재 디렉션 두 정보가 모두 필요하다.)       
+    
         if (moveDirection != currentDirection)
         {
             currentDirection = moveDirection;    
             spriteRenderer.flipX = currentDirection.x < 0;
+            aim.localPosition = new Vector2(direction.x, 0);
         }
+
         
+        //TODO : 에임 포지션 좌우 반전 추가
     }
     private void ApplyMovent(Vector2 direction)
     {
-        direction = direction * playerSpeed;
-        rigid.velocity = direction; //리얼 이동
-        rigid.AddForce(rigid.velocity, ForceMode2D.Impulse);
-        //spriteRenderer.flipX = direction.x < 0;
-
-
-        //Stop Speed
-        //rigid.velocity = new Vector2(rigid.velocity.normalized.x * 0.5f, rigid.velocity.y);
-
-        //Direction Sprite
-        //if (Input.GetButton("Horizontal"))
-        //spriteRenderer.flipX = Input.GetAxisRaw("Horizontal") == -1;
-
-        //Animation
-        if (Mathf.Abs(rigid.velocity.x) < 0.3f)
-        {
-            anim.SetBool("isWalk", false);
-        }
-        else
-        {
-            anim.SetBool("isWalk", true);
-        }
-        /*
-        rigid.AddForce(rigid.velocity, ForceMode2D.Impulse);
+        rigid.AddForce(Vector2.right * direction * speed, ForceMode2D.Impulse);
 
         //Max Speed
         if (rigid.velocity.x > maxSpeed)
@@ -100,13 +94,44 @@ public class PlayerMovement : MonoBehaviour
         {
             rigid.velocity = new Vector2(maxSpeed * (-1), rigid.velocity.y);
         }
-        */
+
+        //Animation
+        if (Mathf.Abs(rigid.velocity.x) < 0.3f)
+        {
+            anim.SetBool("isWalk", false);
+        }
+        else
+        {
+            anim.SetBool("isWalk", true);
+        }
+
+        //rigid.velocity = new Vector2(rigid.velocity.normalized.x * 0.5f, rigid.velocity.y);
     }
 
-
-    private void OnTryShoot()
+    private void Jump()
     {
-        Shoot();
+        if (!anim.GetBool("isJump"))
+        {
+            rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+            anim.SetBool("isJump", true);
+        }
+    }
+
+    private void isGround()
+    {
+        //땅 판별
+        if (rigid.velocity.y <= 0)
+        {
+            RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, Vector2.down, 1, LayerMask.GetMask("Platform"));
+
+            if (rayHit.collider != null)
+            {
+                if (rayHit.distance <= 0.5f)
+                {
+                    anim.SetBool("isJump", false);
+                }
+            }
+        }
     }
     private void Shoot()
     {
