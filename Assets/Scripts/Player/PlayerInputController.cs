@@ -21,6 +21,6 @@ public class PlayerInputController : PlayerController
     }
     public void OnFire(InputValue value)
     {
-        ;
+        IsAttacking = value.isPressed;
     }
 }
