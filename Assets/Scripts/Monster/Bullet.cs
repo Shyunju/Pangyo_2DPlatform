@@ -11,8 +11,13 @@ public class Bullet : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         rigid.velocity = new Vector2(-10, rigid.velocity.y);
 
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, 1f);
     }
-
-    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            Destroy(gameObject);
+        }
+    }
 }

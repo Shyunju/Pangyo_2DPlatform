@@ -6,7 +6,8 @@ TagManager:
   tags:
   - Platform
   - Enemy
-  - Coin
+  - Invnc
+  - Bullet
   layers:
   - Default
   - TransparentFX
