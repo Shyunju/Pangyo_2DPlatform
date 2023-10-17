@@ -11,7 +11,7 @@ public class Item1 : PickupItem
         PlayerStatsHandler statsHandler = receiver.GetComponent<PlayerStatsHandler>();
         foreach (PlayerStats stat in statsModifier)
         {
-            statsHandler.AddStatModifier(stat);
+            statsHandler.AddStatModifierSpeed(stat);
         }
     }
 }
