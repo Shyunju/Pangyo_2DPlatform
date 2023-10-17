@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 8327466140379256015}
   m_Layer: 12
   m_Name: MainSprite
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 1320926653394948200}
   m_Layer: 12
   m_Name: FireMonster
-  m_TagString: Untagged
+  m_TagString: Invnc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -208,5 +208,5 @@ Transform:
   - {fileID: 4203808931672896422}
   - {fileID: 5525549606155897353}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

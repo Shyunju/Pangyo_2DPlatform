@@ -155,3 +155,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef83769d9556b01458917dfac9c6cff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyOnPickup: 1
+  canBePickupBy:
+    serializedVersion: 2
+    m_Bits: 8192
+  pickupSound: {fileID: 0}
+  Money: 10

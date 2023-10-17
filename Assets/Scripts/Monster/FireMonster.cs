@@ -23,7 +23,6 @@ public class FireMonster : MonoBehaviour
     }
     void MakeBullet()
     {
-        Debug.Log("»ý¼º");
         Instantiate(bullet, spawner.transform.position, spawner.transform.rotation);
         Invoke(nameof(MakeBullet), monsterSO.delay);
     }
