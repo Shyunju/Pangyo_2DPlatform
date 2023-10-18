@@ -177,7 +177,7 @@ public class PlayerAction : MonoBehaviour
             SetBiggerState();
         }
         
-        if(collision.gameObject.tag == "공격 가능해지는 아이템 태그")
+        if(collision.gameObject.tag == "공격 가능 아이템 태그")
         {
             SetAttackerState();
         }
