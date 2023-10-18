@@ -144,8 +144,6 @@ public class PlayerAction : MonoBehaviour
     }
     private void Shoot(bool isFacingRight)
     {
-        SetAttackerState();
-
         if (currenState != PlayerState.Attacker)
             return;
 
