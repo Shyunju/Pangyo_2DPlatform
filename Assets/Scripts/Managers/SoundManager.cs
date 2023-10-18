@@ -17,6 +17,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClip BGM_Stage_3;
 
     public AudioClip clickEffect;
+    public AudioClip playerShotEffect;
 
     [SerializeField] private AudioClip stageClear;
     [SerializeField] private AudioClip gameOver;
@@ -55,6 +56,11 @@ public class SoundManager : MonoBehaviour
     public void PlayPickUpItemEffect(AudioClip pickupSound)
     {
         effectAudioSource.PlayOneShot(pickupSound);
+    }
+
+    public void PlayerShotEffect()
+    {
+        effectAudioSource.PlayOneShot(playerShotEffect);
     }
 
     public void PlayClickEffect()

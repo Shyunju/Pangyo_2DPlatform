@@ -172,12 +172,12 @@ public class PlayerAction : MonoBehaviour
         }
 
         //아이템 획득 : 임시 (태그 외에 다른걸로 해도 괜찮습니다.)
-        if(collision.gameObject.tag == "커지는 아이템 태그")
+        if(collision.gameObject.tag == "Item")
         {
             SetBiggerState();
         }
         
-        if(collision.gameObject.tag == "공격 가능 아이템 태그")
+        if(collision.gameObject.tag == "Item")
         {
             SetAttackerState();
         }
