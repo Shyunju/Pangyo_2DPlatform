@@ -199,7 +199,7 @@ public class PlayerAction : MonoBehaviour
     {
         if (currenState == PlayerState.Nomal)
         {
-            Debug.Log("여기서 게임오버 호출"); //여기다 게임오버 호출
+            GameManager.instance.GameOver(); //여기다 게임오버 호출
             return;
         }
 
@@ -239,7 +239,7 @@ public class PlayerAction : MonoBehaviour
 
 
     //기본 상태+초기화용
-    private void SetNomalState()
+    public void SetNomalState()
     {
         currenState = PlayerState.Nomal;
         transform.localScale = new Vector3(1f, 1f, 1f);
