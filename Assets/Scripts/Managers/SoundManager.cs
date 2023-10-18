@@ -11,10 +11,12 @@ public class SoundManager : MonoBehaviour
     [SerializeField][Range(0f, 1f)] private float soundEffectPitchVariance;
     [SerializeField][Range(0f, 1f)] private float musicVolume;
 
-    [SerializeField] private AudioClip BGM_Home;
+    [SerializeField] private AudioClip BGM_Start;
+    [SerializeField] private AudioClip BGM_Stage_Select;
     [SerializeField] private AudioClip BGM_Stage_1;
     [SerializeField] private AudioClip BGM_Stage_2;
     [SerializeField] private AudioClip BGM_Stage_3;
+    [SerializeField] private AudioClip BGM_End;
 
     public AudioClip clickEffect;
     public AudioClip playerShotEffect;
@@ -42,9 +44,9 @@ public class SoundManager : MonoBehaviour
     private void Start()
     {
         Scene currentScene = SceneManager.GetActiveScene();
-        if (currentScene.name == "IntroScene")
+        if (currentScene.name == "StartScene")
         {
-            BgmPlay(BGM_Home);
+            BgmPlay(BGM_Start);
         }
     }
 
@@ -95,19 +97,36 @@ public class SoundManager : MonoBehaviour
     private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode loadSceneMode)
     {
         Debug.Log("OnSceneLoaded");
-        if (scene.name == "GameScene")
+        if (scene.name == "StageSelectScene")
         {
-            BgmPlay(BGM_Stage_1);
+            BgmPlay(BGM_Stage_Select);
         }
-        else if (scene.name == "IntroScene")
+        else if (scene.name == "StartScene")
         {
-            BgmPlay(BGM_Home);
+            BgmPlay(BGM_Start);
+        }
+        else if (scene.name == "GameScene")
+        {
+            int selectedStage = PlayerPrefs.GetInt("SelectedStage");
+
+            switch (selectedStage)
+            {
+                case 1:
+                    BgmPlay(BGM_Stage_1);
+                    break;
+                case 2:
+                    BgmPlay(BGM_Stage_2);
+                    break;
+                case 3:
+                    BgmPlay(BGM_Stage_3);
+                    break;
+            }
         }
         else
         {
-            if (bgmAudioSource.clip != BGM_Home)
+            if (bgmAudioSource.clip != BGM_Start)
             {
-                BgmPlay(BGM_Home);
+                BgmPlay(BGM_Start);
             }
         }
     }

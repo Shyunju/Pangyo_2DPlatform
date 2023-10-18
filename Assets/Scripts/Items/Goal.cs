@@ -8,6 +8,7 @@ public class Goal : MonoBehaviour
     {
         if (other.gameObject.tag.Equals("Player"))
         {
+            //GameManager.Instance.GetItem();
             Debug.Log("Goal");
         }
     }

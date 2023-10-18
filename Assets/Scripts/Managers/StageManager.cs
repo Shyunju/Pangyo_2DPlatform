@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
-public class StageManager : MonoBehaviour
+public class StageSelectManager : MonoBehaviour
 {
     [SerializeField] GameObject[] stageButtons;
     private int currentMapIndex = 0;
@@ -24,6 +24,7 @@ public class StageManager : MonoBehaviour
             currentMapIndex = 0;
         }
 
+        SoundManager.instance.PlayClickEffect();
         ShowStageMap();
     }
 
@@ -35,6 +36,7 @@ public class StageManager : MonoBehaviour
             currentMapIndex = stageButtons.Length - 1;
         }
 
+        SoundManager.instance.PlayClickEffect();
         ShowStageMap();
     }
 
@@ -50,12 +52,14 @@ public class StageManager : MonoBehaviour
 
     public void OnBackButtonClick()
     {
+        SoundManager.instance.PlayClickEffect();
         SceneManager.LoadScene("StartScene");
     }
 
 
     public void OnSelectStage(int stageNumber)
     {
+        SoundManager.instance.PlayClickEffect();
         PlayerPrefs.SetInt("SelectedStage", stageNumber);
         SceneManager.LoadScene("GameScene");
     }

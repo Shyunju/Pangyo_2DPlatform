@@ -8,6 +8,9 @@ TagManager:
   - Enemy
   - Invnc
   - Bullet
+  - Coin
+  - Drop
+  - Item
   layers:
   - Default
   - TransparentFX
