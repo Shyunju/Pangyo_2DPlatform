@@ -247,7 +247,7 @@ public class PlayerAction : MonoBehaviour
         transform.localScale = new Vector3(1f, 1f, 1f);
         defaultSpeed = 2;
         maxSpeed = 6;
-        jumpPower = 20;
+        jumpPower = 25;
         hitDistans = 0.5f;
     }
 
