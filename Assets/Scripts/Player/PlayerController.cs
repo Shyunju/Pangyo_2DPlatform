@@ -24,12 +24,12 @@ public class PlayerController : MonoBehaviour
     {
         //실행 판별 -> 공격 실행(Call) 실제 발사는 구독된 메서드가 실행
 
-        if(AttackDelay <= 0.2f)
+        if(AttackDelay <= 0.5f)
         {
             AttackDelay += Time.deltaTime;
         }
 
-        if(IsAttacking && AttackDelay > 0.2f)
+        if(IsAttacking && AttackDelay > 0.5f)
         {
             AttackDelay = 0;
             CallAttackEvent();

@@ -311,9 +311,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aim: {fileID: 1030080589286810307}
   bulletPrefab: {fileID: 5009443123020304519, guid: 56814f646eb9bcb429a84c8cfe499880, type: 3}
-  maxSpeed: 4.5
+  currenType: 0
+  defaultSpeed: 2
+  maxSpeed: 6
   jumpPower: 20
-  playerSpeed: 4.5
 --- !u!114 &7330520820646344155
 MonoBehaviour:
   m_ObjectHideFlags: 0
