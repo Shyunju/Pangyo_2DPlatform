@@ -15,8 +15,8 @@ public abstract class PickupItem : MonoBehaviour
         {
             OnPickedUp(other.gameObject);
 
-            // if (pickupSound)
-            // SoundMananger.PlayClip(pickupSound);
+            if (pickupSound)
+                SoundManager.instance.PlayPickUpItemEffect(pickupSound);
 
             if (destroyOnPickup)
             {
