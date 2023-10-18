@@ -49,11 +49,14 @@ MonoBehaviour:
   soundEffectVolume: 0
   soundEffectPitchVariance: 0
   musicVolume: 0
-  BGM_Home: {fileID: 8300000, guid: b1e061016248c1849a7a89d19d556c28, type: 3}
+  BGM_Start: {fileID: 8300000, guid: b1e061016248c1849a7a89d19d556c28, type: 3}
+  BGM_Stage_Select: {fileID: 8300000, guid: d37d37c58a418ff4287f17cf7651a128, type: 3}
   BGM_Stage_1: {fileID: 8300000, guid: 633584c27b664914a8eece4c2161868d, type: 3}
   BGM_Stage_2: {fileID: 8300000, guid: d37d37c58a418ff4287f17cf7651a128, type: 3}
   BGM_Stage_3: {fileID: 8300000, guid: b8bff209abc350d468fb23b74eb968ea, type: 3}
+  BGM_End: {fileID: 0}
   clickEffect: {fileID: 8300000, guid: b43d102aac6b145468dcaa94a5cccae1, type: 3}
+  playerShotEffect: {fileID: 0}
   stageClear: {fileID: 8300000, guid: 7478151cf36724a7dada558f746c3633, type: 3}
   gameOver: {fileID: 8300000, guid: a0010a1a0c474473b81729eb770c485f, type: 3}
   bgmAudioSource: {fileID: 6585678545019234576}
