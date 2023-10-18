@@ -50,8 +50,7 @@ public class StageManager : MonoBehaviour
 
     public void OnBackButtonClick()
     {
-        Debug.Log("Start È¨À¸·Î");
-        //SceneManager.LoadScene("StartScene");
+        SceneManager.LoadScene("StartScene");
     }
 
 
