@@ -22,8 +22,7 @@ public class GameSetBTNType : MonoBehaviour
                 break;
 
             case GameSetButtonType.Home:
-                Debug.Log("스타트 씬으로");
-                //SceneManager.LoadScene("StartScene");
+                SceneManager.LoadScene("StartScene");
                 break;
 
             case GameSetButtonType.StageMenu:
