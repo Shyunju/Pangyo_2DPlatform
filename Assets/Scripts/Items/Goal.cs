@@ -8,6 +8,7 @@ public class Goal : MonoBehaviour
     {
         if (other.gameObject.tag.Equals("Player"))
         {
+            SoundManager.instance.PlayStageClear();
             GameManager.instance.GetItem();
         }
     }
