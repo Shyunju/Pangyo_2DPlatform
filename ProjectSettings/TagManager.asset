@@ -12,6 +12,12 @@ TagManager:
   - Drop
   - Item
   - SoundSlider
+  - Goal_Stage_1
+  - Goal_Stage_2
+  - Goal_Stage_3
+  - BiggerItem
+  - AttackerItem
+  - FasterItem
   layers:
   - Default
   - TransparentFX

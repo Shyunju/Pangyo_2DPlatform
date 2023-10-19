@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 6793832357847456317}
   - component: {fileID: 7152179360162279736}
   - component: {fileID: 5504161791946038440}
-  - component: {fileID: -4490676047885485528}
+  - component: {fileID: 734220498857680842}
   m_Layer: 13
-  m_Name: Item2
-  m_TagString: Item
+  m_Name: AttackerItem
+  m_TagString: AttackerItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7152179360162279736
 SpriteRenderer:
@@ -121,7 +121,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &-4490676047885485528
+--- !u!114 &734220498857680842
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,14 +130,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5437476671431653271}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ca5f8cf11b07a246b817a3aebfd434f, type: 3}
+  m_Script: {fileID: 11500000, guid: b7077a9ec8454be49b110ccf0112efdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   destroyOnPickup: 1
   canBePickupBy:
     serializedVersion: 2
     m_Bits: 8192
-  pickupSound: {fileID: 0}
-  statsModifier:
-  - playerType: 2
-    speed: 7.61
+  pickupSound: {fileID: 8300000, guid: 7bd6b897eb5ca4b7d88a205c4a51640c, type: 3}
