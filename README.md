@@ -16,7 +16,7 @@
 
 # 시연 영상 :movie_camera:
 
-<iframe width="789" height="444" src="https://www.youtube.com/embed/Onr1dKKhovQ" title="스파르타 내일배움캠프 B02조 시연영상" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+[![스파르타 내일배움캠프 B02조 시연영상](https://img.youtube.com/vi/Onr1dKKhovQ/0.jpg)](https://www.youtube.com/watch?v=Onr1dKKhovQ "스파르타 내일배움캠프 B02조 시연영상")
 
 <br><br><br><br><br>
 
