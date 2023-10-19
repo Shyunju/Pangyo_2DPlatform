@@ -7,10 +7,12 @@ public class GameScript : MonoBehaviour
     public GameObject stage1GameObject;
     public GameObject stage2GameObject;
     public GameObject stage3GameObject;
+    [SerializeField] private GameObject itemUI;
 
     private void Start()
     {
         int selectedStage = PlayerPrefs.GetInt("SelectedStage");
+        itemUI.SetActive(true);
 
         switch (selectedStage)
         {

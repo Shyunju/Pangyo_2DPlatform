@@ -61,5 +61,6 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         _endPanel.SetActive(true);
+        SoundManager.instance.PlayGameOver();
     }
 }
