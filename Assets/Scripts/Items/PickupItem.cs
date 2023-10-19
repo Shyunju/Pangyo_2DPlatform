@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class PickupItem : MonoBehaviour
+public class PickupItem : MonoBehaviour
 {
     [SerializeField] private bool destroyOnPickup = true;
     [SerializeField] private LayerMask canBePickupBy;
@@ -13,8 +13,6 @@ public abstract class PickupItem : MonoBehaviour
     {
         if (canBePickupBy.value == (canBePickupBy.value | (3 >> other.gameObject.layer)))
         {
-            OnPickedUp(other.gameObject);
-
             if (pickupSound)
                 SoundManager.instance.PlayPickUpItemEffect(pickupSound);
 
@@ -24,6 +22,4 @@ public abstract class PickupItem : MonoBehaviour
             }
         }
     }
-
-    protected abstract void OnPickedUp(GameObject receiver);
 }
