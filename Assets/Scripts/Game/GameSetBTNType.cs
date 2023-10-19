@@ -14,6 +14,7 @@ public class GameSetBTNType : MonoBehaviour
 
     public void OnBtnClick()
     {
+        SoundManager.instance.PlayClickEffect();
         switch (setcurrentType)
         {
             case GameSetButtonType.Play:
