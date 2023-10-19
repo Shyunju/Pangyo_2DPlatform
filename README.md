@@ -8,6 +8,10 @@
 > - 개발 기간 : 2023.10.12 ~ 2023.10.19
 > - 사용 툴 : Unity(2022.3.2f1), Visual Studio, Figma
 
+[팀 판교상륙작전 Figma](https://www.figma.com/file/FSKMeN1A37hGdWvXUeCuSU/%ED%8C%90%EA%B5%90%EC%83%81%EB%A5%99%EC%9E%91%EC%A0%84-team-library?type=design&node-id=2311-51&mode=design&t=9cwpOJgaoNnUljKb-0)
+<br>
+[팀 판교상륙작전 Notion](https://teamsparta.notion.site/02-2dc59acc3e6c4d88b12857a632f8222c)
+
 <br><br>
 
 # 시연 영상 :movie_camera:
@@ -68,9 +72,6 @@
 <br><br><br><br><br>
 
 # 구현 사항 :white_check_mark:
-
-[팀 판교상륙작전 Figma](https://www.figma.com/file/FSKMeN1A37hGdWvXUeCuSU/%ED%8C%90%EA%B5%90%EC%83%81%EB%A5%99%EC%9E%91%EC%A0%84-team-library?type=design&node-id=2311-51&mode=design&t=9cwpOJgaoNnUljKb-0)
-[팀 판교상륙작전 notion](https://teamsparta.notion.site/02-2dc59acc3e6c4d88b12857a632f8222c)
 
 ### 프로젝트 주제 : 모험의 시작
 [프로젝트 구현 내용 notion](https://teamsparta.notion.site/d7cbeb0ba2e441dfba25652b4da38606)
