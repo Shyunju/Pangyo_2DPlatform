@@ -53,6 +53,7 @@ public class PlayerAction : MonoBehaviour
     }
     private void Start()
     {
+        GameManager.instance.SetPlayer(gameObject);
         controller.OnMoveEvent += Move;
         controller.OnAttackEvent += () => Shoot(isFacingRight);
         controller.OnJumpEvent += Jump;
