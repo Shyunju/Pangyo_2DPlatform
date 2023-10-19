@@ -2037,6 +2037,14 @@ PrefabInstance:
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: 939854553384110198, guid: 42c7edebe669cba45a71972f213a1429, type: 2}
+    - target: {fileID: 6342520876014257224, guid: 1ea757729cf32f74989c4c62d70e7f69, type: 3}
+      propertyPath: BGM_End
+      value: 
+      objectReference: {fileID: 8300000, guid: 7d8e29dd742c81d45a6e3802531f9c6c, type: 3}
+    - target: {fileID: 6342520876014257224, guid: 1ea757729cf32f74989c4c62d70e7f69, type: 3}
+      propertyPath: BGM_Stage_Select
+      value: 
+      objectReference: {fileID: 8300000, guid: e757ef3523a4f0442a74903fa53f7ed7, type: 3}
     - target: {fileID: 6585678545019234576, guid: 1ea757729cf32f74989c4c62d70e7f69, type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
