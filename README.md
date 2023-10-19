@@ -8,6 +8,7 @@
 > - 개발 기간 : 2023.10.12 ~ 2023.10.19
 > - 사용 툴 : Unity(2022.3.2f1), Visual Studio, Figma
 
+<br><br>
 
 # 시연 영상 :movie_camera:
 
@@ -117,3 +118,5 @@
     - 플레이 테스트를 통해 게임 패턴을 분석하고 밸런싱을 조정하여 게임 난이도를 최적화하세요.
 
 <br><br><br><br><br>
+
+@all-contributors please add @Shyunju for doc
