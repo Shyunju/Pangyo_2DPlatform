@@ -15,7 +15,8 @@ public enum PlayerState
 {
     Nomal,
     Bigger,
-    Attacker
+    Attacker,
+    Faster
 }
 
 public class PlayerAction : MonoBehaviour
@@ -169,15 +170,33 @@ public class PlayerAction : MonoBehaviour
             //피해를 입을 때 노말 상태가 아니라면 -> 일시 무적 판정 + 노말 상태로 돌아감 -> 무적해제
         }
 
+
+        if (collision.gameObject.tag == "Invnc")
+        {
+            OnDamaged(collision.transform.position);
+        }
+
+        if (collision.gameObject.tag == "Drop")
+        {
+            GameManager.instance.GameOver(); //여기다 게임오버 호출
+        }
+
+
+
         //아이템 획득 : 임시 (태그 외에 다른걸로 해도 괜찮습니다.)
-        if(collision.gameObject.tag == "Item")
+        if (collision.gameObject.tag == "BiggerItem")
         {
             SetBiggerState();
         }
         
-        if(collision.gameObject.tag == "Item")
+        if(collision.gameObject.tag == "AttackerItem")
         {
             SetAttackerState();
+        }
+
+        if (collision.gameObject.tag == "FasterItem")
+        {
+            SetFasterState();
         }
 
         //이 외 추가하고 싶은 아이템...
@@ -251,6 +270,8 @@ public class PlayerAction : MonoBehaviour
 
     private void SetBiggerState()
     {
+        SetNomalState();
+
         currenState = PlayerState.Bigger;
         transform.localScale = new Vector3(2f, 2f, 2f);
         hitDistans = 2.0f;
@@ -262,6 +283,15 @@ public class PlayerAction : MonoBehaviour
 
         spriteRenderer.color = new Color(255, 230, 0, 1);
         currenState = PlayerState.Attacker;
-        //모습이 다른 뭔가가 필요하긴 함 -> 모자같은거? -> 그냥 색상변경 넣음
+    }
+
+    private void SetFasterState()
+    {
+        SetNomalState();
+
+        spriteRenderer.color = new Color(0, 255, 200, 1);
+        currenState = PlayerState.Faster;
+        defaultSpeed = 2.5f;
+        maxSpeed = 8;
     }
 }
