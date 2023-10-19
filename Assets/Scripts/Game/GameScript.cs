@@ -8,11 +8,17 @@ public class GameScript : MonoBehaviour
     public GameObject stage2GameObject;
     public GameObject stage3GameObject;
     [SerializeField] private GameObject itemUI;
+    [SerializeField] private GameObject diePopup;
 
+    private void Awake()
+    {
+        itemUI.SetActive(true);
+        diePopup.SetActive(true);
+    }
     private void Start()
     {
         int selectedStage = PlayerPrefs.GetInt("SelectedStage");
-        itemUI.SetActive(true);
+        
 
         switch (selectedStage)
         {

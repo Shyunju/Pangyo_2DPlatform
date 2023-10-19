@@ -8,9 +8,9 @@ public class GameManager : MonoBehaviour
     public static GameManager instance = null;
     //GameManager.Instance.GetItem();
 
-    [SerializeField] private GameObject _player;
-    [SerializeField] private GameObject _endPanel;
-    [SerializeField] private GameObject _itemUI;
+    private GameObject _player;
+    private GameObject _endPanel;
+    private GameObject _itemUI;
     private PlayerAction _playerReset;
     private ItemUIManager _itemUIManager;
 
@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        //instance = this;
         if (instance == null) 
         {
             instance = this; 
@@ -28,7 +28,23 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+        
+        
+    }
+    public void SetPlayer(GameObject player)
+    {
+        _player = player;
         _playerReset = _player.GetComponent<PlayerAction>();
+    }
+
+    public void SetGameOver(GameObject panel)
+    {
+        _endPanel = panel;
+        _endPanel.SetActive(false);
+    }
+    public void SetItemUI(GameObject panel)
+    {
+        _itemUI = panel;
         _itemUIManager = _itemUI.GetComponent<ItemUIManager>();
     }
 
@@ -49,7 +65,7 @@ public class GameManager : MonoBehaviour
         else
         {
             SceneManager.LoadScene("StageScene"); //스테이지 클리어
-            Reset();
+            Reset(); //문제 생기면 여기임
         }
     }
 
