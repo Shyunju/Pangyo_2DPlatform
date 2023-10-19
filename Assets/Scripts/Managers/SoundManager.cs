@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager instance;
-
-    [SerializeField][Range(0f, 1f)] private float soundEffectVolume;
-    [SerializeField][Range(0f, 1f)] private float soundEffectPitchVariance;
-    [SerializeField][Range(0f, 1f)] private float musicVolume;
 
     [SerializeField] private AudioClip BGM_Start;
     [SerializeField] private AudioClip BGM_Stage_Select;
@@ -26,6 +24,9 @@ public class SoundManager : MonoBehaviour
 
     [SerializeField] private AudioSource bgmAudioSource;
     [SerializeField] private AudioSource effectAudioSource;
+
+    [SerializeField] private AudioMixer masterMixer;
+    [SerializeField] private Slider audioSlider;
 
     private void Awake()
     {
@@ -97,7 +98,7 @@ public class SoundManager : MonoBehaviour
     private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode loadSceneMode)
     {
         Debug.Log("OnSceneLoaded");
-        if (scene.name == "StageSelectScene")
+        if (scene.name == "StageScene")
         {
             BgmPlay(BGM_Stage_Select);
         }
@@ -107,6 +108,10 @@ public class SoundManager : MonoBehaviour
         }
         else if (scene.name == "GameScene")
         {
+            audioSlider = GameObject.FindGameObjectWithTag("SoundSlider").GetComponent<Slider>();
+
+            audioSlider.onValueChanged.AddListener(AudioControl);
+
             int selectedStage = PlayerPrefs.GetInt("SelectedStage");
 
             switch (selectedStage)
@@ -121,6 +126,10 @@ public class SoundManager : MonoBehaviour
                     BgmPlay(BGM_Stage_3);
                     break;
             }
+        }
+        else if (scene.name == "EndScene")
+        {
+            BgmPlay(BGM_End);
         }
         else
         {
@@ -142,5 +151,10 @@ public class SoundManager : MonoBehaviour
     void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    public void AudioControl(float volume)
+    {
+        masterMixer.SetFloat("Master", Mathf.Log10(volume) * 20);
     }
 }

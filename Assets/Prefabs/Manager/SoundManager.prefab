@@ -46,9 +46,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ed23eea1d4a4c54d8d20a3e9f7cd603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffectVolume: 0
-  soundEffectPitchVariance: 0
-  musicVolume: 0
   BGM_Start: {fileID: 8300000, guid: b1e061016248c1849a7a89d19d556c28, type: 3}
   BGM_Stage_Select: {fileID: 8300000, guid: d37d37c58a418ff4287f17cf7651a128, type: 3}
   BGM_Stage_1: {fileID: 8300000, guid: 633584c27b664914a8eece4c2161868d, type: 3}
@@ -61,6 +58,8 @@ MonoBehaviour:
   gameOver: {fileID: 8300000, guid: a0010a1a0c474473b81729eb770c485f, type: 3}
   bgmAudioSource: {fileID: 6585678545019234576}
   effectAudioSource: {fileID: 4651023365907529092}
+  masterMixer: {fileID: 24100000, guid: 42c7edebe669cba45a71972f213a1429, type: 2}
+  audioSlider: {fileID: 0}
 --- !u!82 &6585678545019234576
 AudioSource:
   m_ObjectHideFlags: 0
