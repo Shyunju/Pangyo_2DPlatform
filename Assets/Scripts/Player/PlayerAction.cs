@@ -180,16 +180,25 @@ public class PlayerAction : MonoBehaviour
         {
             GameManager.instance.GameOver(); //여기다 게임오버 호출
         }
+        //닿은 아이템에 따라 플레이어 상태 변화시켜주기(할 수 있는 행동 선택지 증/감)
+        //아이템 먹고 맞으면 -> 노말 상태로 돌아감
 
+        //커진 상태인 경우 변해야 할 값(상태, 레이 길이 [선택 : 점프력 & 이동속도])
+        //공격 상태인 경우 변해야 할 값(상태만 바꾸면 됨)
 
+        //다른 상태 -> 노말 상태로 돌아갈 경우 변해야 할 값(상태, 모든 값 기본으로 변경 = 메서드로 따로 생성)
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
         //아이템 획득 : 임시 (태그 외에 다른걸로 해도 괜찮습니다.)
         if (collision.gameObject.tag == "BiggerItem")
         {
             SetBiggerState();
         }
-        
-        if(collision.gameObject.tag == "AttackerItem")
+
+        if (collision.gameObject.tag == "AttackerItem")
         {
             SetAttackerState();
         }
@@ -200,20 +209,8 @@ public class PlayerAction : MonoBehaviour
         }
 
         //이 외 추가하고 싶은 아이템...
-
-
-
-
-
-        //닿은 아이템에 따라 플레이어 상태 변화시켜주기(할 수 있는 행동 선택지 증/감)
-        //아이템 먹고 맞으면 -> 노말 상태로 돌아감
-
-        //커진 상태인 경우 변해야 할 값(상태, 레이 길이 [선택 : 점프력 & 이동속도])
-        //공격 상태인 경우 변해야 할 값(상태만 바꾸면 됨)
-
-        //다른 상태 -> 노말 상태로 돌아갈 경우 변해야 할 값(상태, 모든 값 기본으로 변경 = 메서드로 따로 생성)
-
     }
+
     private void OnDamaged(Vector2 targetPos)
     {
         if (currenState == PlayerState.Nomal)
@@ -262,6 +259,8 @@ public class PlayerAction : MonoBehaviour
     {
         currenState = PlayerState.Nomal;
         transform.localScale = new Vector3(1f, 1f, 1f);
+        spriteRenderer.color = new Color(1, 1, 1, 1);
+
         defaultSpeed = 2;
         maxSpeed = 6;
         jumpPower = 25;
