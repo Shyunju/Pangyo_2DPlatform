@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
-    //GameManager.Instance.GetItem();
-
     private GameObject _player;
     private GameObject _endPanel;
     private GameObject _itemUI;
@@ -26,11 +24,7 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject); 
         }
     }
-    void Start()
-    {
-        
-        
-    }
+
     public void SetPlayer(GameObject player)
     {
         _player = player;
@@ -65,7 +59,7 @@ public class GameManager : MonoBehaviour
         else
         {
             SceneManager.LoadScene("StageScene"); //스테이지 클리어
-            Reset(); //문제 생기면 여기임
+            Reset(); 
         }
     }
 

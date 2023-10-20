@@ -64,9 +64,6 @@ public class Monster : MonoBehaviour
         _collider.enabled = false;
         _rigid.AddForce(Vector2.up * 5, ForceMode2D.Impulse);
         Invoke(nameof(DeAcrive), 5f);
-
-        //Monster monster = enemy.GetComponent<Monster>();
-        //monster.OnDamaged();
     }
 
     void DeAcrive()
